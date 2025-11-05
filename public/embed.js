@@ -47,7 +47,10 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         box-sizing: border-box;
-        pointer-events: auto;
+        pointer-events: none;
+        width: 0;
+        height: 0;
+        overflow: visible;
       `;
 
       // Create iframe
@@ -55,12 +58,18 @@
       iframe.id = 'real-estate-chatbot-iframe';
       iframe.src = chatbotUrl;
       iframe.style.cssText = `
-        width: 100%;
-        height: 100%;
+        position: fixed;
+        ${positionStyles}
+        width: 450px;
+        height: 800px;
+        max-width: 90vw;
+        max-height: 90vh;
         border: none;
         border-radius: 12px;
         box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
         display: block;
+        pointer-events: auto;
+        z-index: 999999;
       `;
       iframe.allow = 'geolocation; microphone; camera';
       iframe.title = 'Real Estate Chatbot Assistant';
@@ -69,20 +78,20 @@
       container.appendChild(iframe);
       document.body.appendChild(container);
 
-      // Handle responsive sizing
-      function updateContainerSize() {
+      // Handle responsive sizing for iframe
+      function updateIframeSize() {
         const width = Math.min(window.innerWidth * 0.9, 450);
         const height = Math.min(window.innerHeight * 0.9, 800);
 
-        container.style.width = width + 'px';
-        container.style.height = height + 'px';
+        iframe.style.width = width + 'px';
+        iframe.style.height = height + 'px';
       }
 
       // Initial size
-      updateContainerSize();
+      updateIframeSize();
 
       // Update on resize
-      window.addEventListener('resize', updateContainerSize);
+      window.addEventListener('resize', updateIframeSize);
 
       // Log successful load
       console.log('✅ Real Estate Chatbot widget loaded successfully');
