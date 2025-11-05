@@ -61,9 +61,9 @@
         position: fixed;
         ${positionStyles}
         width: 450px;
-        height: 800px;
+        height: 600px;
         max-width: 90vw;
-        max-height: 90vh;
+        max-height: 70vh;
         border: none;
         border-radius: 12px;
         box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
@@ -81,7 +81,7 @@
       // Handle responsive sizing for iframe
       function updateIframeSize() {
         const width = Math.min(window.innerWidth * 0.9, 450);
-        const height = Math.min(window.innerHeight * 0.9, 800);
+        const height = Math.min(window.innerHeight * 0.7, 600);
 
         iframe.style.width = width + 'px';
         iframe.style.height = height + 'px';
