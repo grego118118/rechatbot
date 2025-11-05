@@ -24,7 +24,7 @@ The chatbot widget was blocking user interactions with the "View all my listings
 
 ### 1. CSS Pointer-Events Control (index.css)
 
-Added three CSS rules to manage pointer events:
+Added three CSS rules to manage pointer events for the internal React component:
 
 ```css
 /* Chat widget container - prevent blocking clicks when closed */
@@ -43,27 +43,44 @@ Added three CSS rules to manage pointer events:
 }
 ```
 
-**How it works:**
-- Container has `pointer-events: none` by default → doesn't capture any clicks
-- Toggle button has `pointer-events: auto` → always clickable
-- Expanded content has `pointer-events: auto` → clickable when chatbot is open
+### 2. Embed Script Restructuring (embed.js & public/embed.js)
 
-### 2. Embed Script Enhancement (embed.js & public/embed.js)
-
-Added `pointer-events: auto` to the container CSS:
+**Key Changes:**
+1. **Container element** - Now has `pointer-events: none` with `width: 0; height: 0; overflow: visible`
+2. **Iframe element** - Now positioned directly with `position: fixed` and `pointer-events: auto`
+3. **Positioning** - Moved from container to iframe for precise control
 
 ```javascript
+// Container: Non-interactive wrapper
 container.style.cssText = `
   position: fixed;
   ${positionStyles}
   z-index: 999999;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', ...;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  box-sizing: border-box;
-  pointer-events: auto;  // ← Added this line
+  pointer-events: none;      // ← Doesn't capture clicks
+  width: 0;                  // ← Zero size
+  height: 0;                 // ← Zero size
+  overflow: visible;         // ← But children are visible
+`;
+
+// Iframe: Direct positioning and interaction
+iframe.style.cssText = `
+  position: fixed;           // ← Positioned directly
+  ${positionStyles}
+  width: 450px;
+  height: 800px;
+  max-width: 90vw;
+  max-height: 90vh;
+  pointer-events: auto;      // ← Captures clicks
+  z-index: 999999;
 `;
 ```
+
+**Why this works:**
+- Container has `pointer-events: none` → clicks pass through
+- Container has `width: 0; height: 0` → takes no space
+- Container has `overflow: visible` → iframe still visible despite zero size
+- Iframe has `pointer-events: auto` → only the iframe captures clicks
+- Iframe positioned directly → no wrapper interference
 
 ---
 
@@ -97,12 +114,15 @@ This ensures:
 - Lines added: 12
 
 ### 2. embed.js
-- Added `pointer-events: auto` to container styles
-- Lines added: 1
+- Changed container to `pointer-events: none` with `width: 0; height: 0; overflow: visible`
+- Moved positioning and sizing to iframe element
+- Added `pointer-events: auto` to iframe
+- Updated sizing function to work with iframe instead of container
+- Lines changed: ~36
 
 ### 3. public/embed.js
-- Added `pointer-events: auto` to container styles
-- Lines added: 1
+- Same changes as embed.js for consistency
+- Lines changed: ~36
 
 ### 4. index.tsx
 - No changes needed (CSS handles all pointer-events)
@@ -128,57 +148,69 @@ This ensures:
 
 ## Deployment
 
-### Git Commit
+### Git Commits
 ```
 commit 0eb3fe3
 fix: Resolve click-blocking issue with chatbot widget using pointer-events
+
+commit d308752
+docs: Add comprehensive documentation for click-blocking fix
+
+commit 93a8b1e
+fix: Improve pointer-events handling in embed.js for better click-through
 ```
 
 ### Vercel Deployment
 - Automatically deployed to: https://real-estate-chatbot-tau.vercel.app
 - Changes live and ready for testing
+- embed.js updated with improved pointer-events handling
 
 ---
 
 ## Before & After
 
-### Before Fix
+### Before Fix (embed.js)
 ```
 Website Element (e.g., "View all my listings" button)
     ↓
-Chat Widget Container (z-index: 1000) ← BLOCKS CLICKS
+Container (position: fixed, z-index: 999999) ← BLOCKS CLICKS
     ↓
-Underlying Website
+Iframe (inside container)
+    ↓
+Underlying Website ← NEVER RECEIVES CLICKS
 ```
 
-### After Fix
+### After Fix (embed.js)
 ```
 Website Element (e.g., "View all my listings" button)
     ↓
-Chat Widget Container (pointer-events: none) ← PASSES CLICKS THROUGH
+Container (pointer-events: none, width: 0, height: 0) ← PASSES CLICKS THROUGH
     ↓
-Underlying Website ← RECEIVES CLICKS
+Iframe (position: fixed, pointer-events: auto) ← ONLY CAPTURES CLICKS ON ITSELF
+    ↓
+Underlying Website ← RECEIVES CLICKS OUTSIDE IFRAME
 ```
 
 ---
 
 ## How It Works in Practice
 
-### When Chatbot is Closed
-1. User clicks on "View all my listings" button
-2. Click passes through chat-widget-container (pointer-events: none)
+### When User Clicks "View all my listings" Button
+1. User clicks on the button (outside the iframe)
+2. Click passes through container (pointer-events: none, width: 0, height: 0)
 3. Click reaches the website button
 4. Button responds to click ✅
 
-### When Chatbot is Open
-1. User clicks inside the chat interface
-2. Click is captured by chat-expanded-content (pointer-events: auto)
-3. Chat interface responds to click ✅
+### When User Clicks Inside the Chatbot Iframe
+1. User clicks inside the iframe area
+2. Click is captured by iframe (pointer-events: auto)
+3. Iframe content receives the click
+4. Chat interface responds to click ✅
 
-### When User Clicks Chat Button
-1. User clicks 💬 button
-2. Click is captured by chat-toggle-button (pointer-events: auto)
-3. Chat opens ✅
+### When User Clicks the Chat Button (💬)
+1. User clicks the 💬 button inside the iframe
+2. Click is captured by iframe (pointer-events: auto)
+3. Chat opens/closes ✅
 
 ---
 
