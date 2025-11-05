@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate Website with Embedded Chatbot</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #AF0C0D 0%, #8B0A0A 100%);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      color: #AF0C0D;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    section p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background: #f5f5f5;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #AF0C0D;
+    }
+
+    .feature-card h3 {
+      color: #AF0C0D;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #AF0C0D;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #8B0A0A;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    .chatbot-info {
+      background: #f0f0f0;
+      border: 2px solid #AF0C0D;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .chatbot-info h3 {
+      color: #AF0C0D;
+      margin-bottom: 0.5rem;
+    }
+
+    code {
+      background: #f5f5f5;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🏠 Hampden County Real Estate</h1>
+    <p>Your trusted partner in finding the perfect home</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Welcome to Our Real Estate Platform</h2>
+      <p>
+        We're dedicated to helping you find your dream home in Hampden County, Massachusetts. 
+        Whether you're a first-time buyer, experienced investor, or looking to sell, our AI-powered 
+        assistant is here to help.
+      </p>
+      <p>
+        <strong>💬 Try our chatbot!</strong> Click the chat button in the bottom-right corner to ask 
+        questions about the real estate market, neighborhoods, and more.
+      </p>
+    </section>
+
+    <section>
+      <h2>Our Services</h2>
+      <div class="features">
+        <div class="feature-card">
+          <h3>🔍 Market Analysis</h3>
+          <p>Get insights into current market trends, pricing, and neighborhood data for Hampden County.</p>
+        </div>
+        <div class="feature-card">
+          <h3>🏡 Property Search</h3>
+          <p>Browse available properties and get detailed information about homes in your area of interest.</p>
+        </div>
+        <div class="feature-card">
+          <h3>💼 Expert Guidance</h3>
+          <p>Connect with our experienced real estate agents for personalized advice and support.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="chatbot-info">
+      <h3>💬 AI Real Estate Assistant</h3>
+      <p>
+        Our chatbot is powered by Google Gemini AI and provides instant answers to your real estate questions. 
+        It can help with:
+      </p>
+      <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+        <li>Market statistics and trends</li>
+        <li>Town-specific information</li>
+        <li>Buying and selling guidance</li>
+        <li>Connecting you with local agents</li>
+      </ul>
+      <p style="margin-top: 1rem;">
+        <strong>Try it now!</strong> Look for the 💬 button in the bottom-right corner of this page.
+      </p>
+    </section>
+
+    <section>
+      <h2>Why Choose Us?</h2>
+      <p>
+        With years of experience in the Hampden County real estate market, we understand the unique 
+        needs of our community. Our AI assistant provides instant, accurate information to help you 
+        make informed decisions.
+      </p>
+      <a href="#" class="cta-button">Learn More About Our Services</a>
+    </section>
+
+    <section>
+      <h2>Get Started Today</h2>
+      <p>
+        Ready to explore the Hampden County real estate market? Use our AI assistant to get started, 
+        or contact our team directly for personalized support.
+      </p>
+      <p>
+        <strong>Contact Information:</strong><br>
+        Phone: (413) 575-5735<br>
+        Email: slepsch@bhhsrealtypros.com
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Hampden County Real Estate. All rights reserved.</p>
+    <p>Powered by Berkshire Hathaway HomeServices Realty Professionals</p>
+  </footer>
+
+  <!-- ============================================ -->
+  <!-- CHATBOT EMBED CODE - Add this to your site -->
+  <!-- ============================================ -->
+  <script>
+    window.RealEstateChatbotConfig = {
+      chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app',
+      position: 'bottom-right',  // Options: 'bottom-right', 'bottom-left', 'top-right', 'top-left'
+      theme: 'light'             // Options: 'light', 'dark'
+    };
+  </script>
+  <script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+  <!-- ============================================ -->
+
+</body>
+</html>
+
