@@ -27,10 +27,10 @@ Use this checklist to systematically troubleshoot your chatbot embed issue.
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 </body>
 ```
 
@@ -59,7 +59,7 @@ Use this checklist to systematically troubleshoot your chatbot embed issue.
 **Expected success messages:**
 ```
 ✅ Real Estate Chatbot widget loaded successfully
-📍 Chatbot URL: https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app
+📍 Chatbot URL: https://real-estate-chatbot-tau.vercel.app
 📌 Position: bottom-right
 🎨 Theme: light
 📦 Widget ID: real-estate-chatbot-widget
@@ -83,7 +83,7 @@ Use this checklist to systematically troubleshoot your chatbot embed issue.
 
 ### Error: "Failed to load script"
 ```
-GET https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js 404
+GET https://real-estate-chatbot-tau.vercel.app/embed.js 404
 ```
 **Fix:**
 - [ ] Verify Vercel deployment is complete
@@ -176,7 +176,7 @@ console.log('Iframe loaded:', iframe?.complete);
 **Expected result:**
 ```
 Iframe exists: true
-Iframe src: https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app
+Iframe src: https://real-estate-chatbot-tau.vercel.app
 Iframe loaded: true
 ```
 
@@ -190,7 +190,7 @@ Iframe loaded: true
 
 **If iframe won't load:**
 - [ ] Chatbot URL might be down
-- [ ] Try visiting URL directly: https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app
+- [ ] Try visiting URL directly: https://real-estate-chatbot-tau.vercel.app
 
 ---
 

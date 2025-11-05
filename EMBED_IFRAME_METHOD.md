@@ -21,7 +21,7 @@ If the `embed.js` script method isn't working, use this **simpler and more relia
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 ">
   <iframe
-    src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app"
+    src="https://real-estate-chatbot-tau.vercel.app"
     style="width: 100%; height: 100%; border: none; border-radius: 12px; display: block;"
     title="Real Estate Chatbot Assistant"
     allow="geolocation; microphone; camera"
@@ -73,7 +73,7 @@ If the `embed.js` script method isn't working, use this **simpler and more relia
   box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
 ">
   <iframe
-    src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app"
+    src="https://real-estate-chatbot-tau.vercel.app"
     style="width: 100%; height: 100%; border: none; border-radius: 12px; display: block;"
     title="Real Estate Chatbot Assistant"
     allow="geolocation; microphone; camera"
@@ -96,7 +96,7 @@ If the `embed.js` script method isn't working, use this **simpler and more relia
   box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
 ">
   <iframe
-    src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app"
+    src="https://real-estate-chatbot-tau.vercel.app"
     style="width: 100%; height: 100%; border: none; border-radius: 12px; display: block;"
     title="Real Estate Chatbot Assistant"
     allow="geolocation; microphone; camera"
@@ -119,7 +119,7 @@ If the `embed.js` script method isn't working, use this **simpler and more relia
   box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
 ">
   <iframe
-    src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app"
+    src="https://real-estate-chatbot-tau.vercel.app"
     style="width: 100%; height: 100%; border: none; border-radius: 12px; display: block;"
     title="Real Estate Chatbot Assistant"
     allow="geolocation; microphone; camera"
@@ -284,7 +284,7 @@ The code includes `max-width: 90vw` and `max-height: 90vh` which means:
 
 ### Widget shows but is blank?
 - Verify the chatbot URL is correct
-- Check if the chatbot is deployed: https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app
+- Check if the chatbot is deployed: https://real-estate-chatbot-tau.vercel.app
 - Try opening the URL directly in a new tab
 
 ### Widget is cut off?
@@ -301,7 +301,7 @@ The code includes `max-width: 90vw` and `max-height: 90vh` which means:
 
 ## 📞 Support
 
-- **Live Chatbot:** https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app
+- **Live Chatbot:** https://real-estate-chatbot-tau.vercel.app
 - **GitHub:** https://github.com/grego118118/rechatbot
 - **Vercel Dashboard:** https://vercel.com/grego118s-projects/real-estate-chatbot
 

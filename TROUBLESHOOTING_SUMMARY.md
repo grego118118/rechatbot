@@ -24,7 +24,7 @@ Replace your embed code with this:
   box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
 ">
   <iframe
-    src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app"
+    src="https://real-estate-chatbot-tau.vercel.app"
     style="width: 100%; height: 100%; border: none; border-radius: 12px; display: block;"
     title="Real Estate Chatbot Assistant"
     allow="geolocation; microphone; camera"
@@ -50,10 +50,10 @@ If you want to use the embed.js script:
    <!-- CORRECT: Before </body> -->
    <script>
      window.RealEstateChatbotConfig = {
-       chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+       chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
      };
    </script>
-   <script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+   <script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
    </body>
    ```
 
@@ -80,7 +80,7 @@ If you want to use the embed.js script:
 You should see:
 ```
 ✅ Real Estate Chatbot widget loaded successfully
-📍 Chatbot URL: https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app
+📍 Chatbot URL: https://real-estate-chatbot-tau.vercel.app
 📌 Position: bottom-right
 🎨 Theme: light
 📦 Widget ID: real-estate-chatbot-widget
@@ -111,7 +111,7 @@ if (w) {
 
 ### Error: "Failed to load script" (404)
 ```
-GET https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js 404
+GET https://real-estate-chatbot-tau.vercel.app/embed.js 404
 ```
 
 **Fix:**
@@ -276,7 +276,7 @@ Follow these steps in order:
   box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
 ">
   <iframe
-    src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app"
+    src="https://real-estate-chatbot-tau.vercel.app"
     style="width: 100%; height: 100%; border: none; border-radius: 12px; display: block;"
     title="Real Estate Chatbot Assistant"
     allow="geolocation; microphone; camera"
@@ -299,7 +299,7 @@ Follow these steps in order:
 1. **Check documentation:** See files listed above
 2. **Review GitHub:** https://github.com/grego118118/rechatbot
 3. **Check Vercel:** https://vercel.com/grego118s-projects/real-estate-chatbot
-4. **Test chatbot directly:** https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app
+4. **Test chatbot directly:** https://real-estate-chatbot-tau.vercel.app
 
 ---
 

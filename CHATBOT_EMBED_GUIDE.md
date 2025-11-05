@@ -4,7 +4,7 @@
 
 Your BHHS-branded real estate chatbot is now ready to be embedded into any website! The chatbot appears as a floating 💬 button and provides AI-powered real estate assistance to your website visitors.
 
-**Live Chatbot URL:** `https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app`
+**Live Chatbot URL:** `https://real-estate-chatbot-tau.vercel.app`
 
 ---
 
@@ -15,10 +15,10 @@ Your BHHS-branded real estate chatbot is now ready to be embedded into any websi
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ### Paste Into Your Website:
@@ -70,12 +70,12 @@ Your BHHS-branded real estate chatbot is now ready to be embedded into any websi
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app',
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app',
     position: 'bottom-right',  // Where the widget appears
     theme: 'light'             // Color theme
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ### Position Options
@@ -144,11 +144,11 @@ import { useEffect } from 'react';
 export default function App({ Component, pageProps }) {
   useEffect(() => {
     window.RealEstateChatbotConfig = {
-      chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+      chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
     };
-    
+
     const script = document.createElement('script');
-    script.src = 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js';
+    script.src = 'https://real-estate-chatbot-tau.vercel.app/embed.js';
     document.body.appendChild(script);
   }, []);
 
@@ -201,7 +201,7 @@ The widget automatically:
 
 ### Widget Shows But Doesn't Work?
 
-1. Check if the chatbot URL is accessible: https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app
+1. Check if the chatbot URL is accessible: https://real-estate-chatbot-tau.vercel.app
 2. Verify CORS is enabled (it should be by default)
 3. Check browser console for iframe errors
 4. Try a different browser to rule out browser-specific issues
@@ -225,29 +225,29 @@ Remove duplicate embed code - you should only have one set of `<script>` tags
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app',
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app',
     position: 'bottom-left'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ### Example 2: Top-Right Position
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app',
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app',
     position: 'top-right'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ---
 
 ## 📞 Support & Resources
 
-- **Live Chatbot:** https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app
+- **Live Chatbot:** https://real-estate-chatbot-tau.vercel.app
 - **GitHub Repository:** https://github.com/grego118118/rechatbot
 - **Vercel Dashboard:** https://vercel.com/grego118s-projects/real-estate-chatbot
 - **Example Implementation:** See `embed-example.html` in the repository

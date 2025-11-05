@@ -9,10 +9,10 @@ Copy and paste these snippets directly into your website. No modifications neede
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 **Where to place it:** Right before the closing `</body>` tag in your HTML
@@ -25,44 +25,44 @@ Copy and paste these snippets directly into your website. No modifications neede
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app',
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app',
     position: 'bottom-right'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ### Bottom-Left
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app',
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app',
     position: 'bottom-left'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ### Top-Right
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app',
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app',
     position: 'top-right'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ### Top-Left
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app',
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app',
     position: 'top-left'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ---
@@ -77,10 +77,10 @@ Copy and paste these snippets directly into your website. No modifications neede
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ### Wix
@@ -91,10 +91,10 @@ Copy and paste these snippets directly into your website. No modifications neede
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 4. Set placement to **Footer**
@@ -106,10 +106,10 @@ Copy and paste these snippets directly into your website. No modifications neede
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ### Shopify
@@ -121,10 +121,10 @@ Copy and paste these snippets directly into your website. No modifications neede
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ### Webflow
@@ -134,10 +134,10 @@ Copy and paste these snippets directly into your website. No modifications neede
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ### HTML/Static Website
@@ -146,10 +146,10 @@ Add this before the closing `</body>` tag:
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ### Next.js / React
@@ -162,11 +162,11 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     // Load chatbot widget
     window.RealEstateChatbotConfig = {
-      chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+      chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
     };
     
     const script = document.createElement('script');
-    script.src = 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js';
+    script.src = 'https://real-estate-chatbot-tau.vercel.app/embed.js';
     document.body.appendChild(script);
   }, []);
 
@@ -188,11 +188,11 @@ In your `App.vue`:
 export default {
   mounted() {
     window.RealEstateChatbotConfig = {
-      chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+      chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
     };
     
     const script = document.createElement('script');
-    script.src = 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js';
+    script.src = 'https://real-estate-chatbot-tau.vercel.app/embed.js';
     document.body.appendChild(script);
   }
 }

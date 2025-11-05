@@ -13,10 +13,10 @@
   <!-- CHATBOT CODE HERE -->
   <script>
     window.RealEstateChatbotConfig = {
-      chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+      chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
     };
   </script>
-  <script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+  <script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
   
 </body>  ← Closing body tag
 ```
@@ -41,7 +41,7 @@
 #### ✅ Success (You should see these)
 ```
 ✅ Real Estate Chatbot widget loaded successfully
-📍 Chatbot URL: https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app
+📍 Chatbot URL: https://real-estate-chatbot-tau.vercel.app
 📌 Position: bottom-right
 🎨 Theme: light
 📦 Widget ID: real-estate-chatbot-widget
@@ -51,7 +51,7 @@
 
 **Error: "Failed to load script"**
 ```
-GET https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js 404
+GET https://real-estate-chatbot-tau.vercel.app/embed.js 404
 ```
 **Fix:** The embed.js file is not deployed. See "Deploy embed.js" section below.
 
@@ -73,14 +73,14 @@ Uncaught SyntaxError: Unexpected token
 
 ### Method 1: Direct URL Test
 1. Open a new browser tab
-2. Go to: `https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js`
+2. Go to: `https://real-estate-chatbot-tau.vercel.app/embed.js`
 3. You should see the JavaScript code
 4. If you see a 404 error, the file is not deployed
 
 ### Method 2: Console Command
 Open browser console (F12) and run:
 ```javascript
-fetch('https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js')
+fetch('https://real-estate-chatbot-tau.vercel.app/embed.js')
   .then(r => r.text())
   .then(t => console.log('✅ File loaded:', t.length, 'bytes'))
   .catch(e => console.error('❌ Error:', e));
@@ -116,7 +116,7 @@ Expected output:
 Widget exists: true
 Widget element: <div id="real-estate-chatbot-widget" ...>
 Iframe exists: true
-Iframe src: https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app
+Iframe src: https://real-estate-chatbot-tau.vercel.app
 Script loaded: true
 ```
 
@@ -208,7 +208,7 @@ git push origin main
 Wait 1-2 minutes for Vercel to auto-deploy.
 
 ### Verify deployment:
-Visit: `https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js`
+Visit: `https://real-estate-chatbot-tau.vercel.app/embed.js`
 
 You should see the JavaScript code.
 
@@ -230,7 +230,7 @@ If embed.js still doesn't work, use this simpler iframe approach:
   box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
 ">
   <iframe
-    src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app"
+    src="https://real-estate-chatbot-tau.vercel.app"
     style="width: 100%; height: 100%; border: none; border-radius: 12px;"
     title="Real Estate Chatbot"
     allow="geolocation; microphone; camera"

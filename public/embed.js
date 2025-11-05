@@ -21,7 +21,7 @@
   function initWidget() {
     // Configuration with defaults
     const config = window.RealEstateChatbotConfig || {};
-    const chatbotUrl = config.chatbotUrl || 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app';
+    const chatbotUrl = config.chatbotUrl || 'https://real-estate-chatbot-tau.vercel.app';
     const position = config.position || 'bottom-right';
     const theme = config.theme || 'light';
 

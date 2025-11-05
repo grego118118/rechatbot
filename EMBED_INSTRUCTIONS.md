@@ -7,10 +7,10 @@ Add this single line of code to your website's HTML (before the closing `</body>
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 That's it! The chatbot widget will appear as a floating 💬 button in the bottom-right corner of your website.
@@ -26,7 +26,7 @@ Place this in your HTML `<head>` or before the closing `</body>` tag:
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app',
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app',
     position: 'bottom-right',  // Options: 'bottom-right', 'bottom-left', 'top-right', 'top-left'
     theme: 'light'             // Options: 'light', 'dark'
   };
@@ -38,7 +38,7 @@ Place this in your HTML `<head>` or before the closing `</body>` tag:
 Add this script tag right before the closing `</body>` tag:
 
 ```html
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ### Complete Example
@@ -58,11 +58,11 @@ Add this script tag right before the closing `</body>` tag:
   <!-- Add the chatbot widget at the end of body -->
   <script>
     window.RealEstateChatbotConfig = {
-      chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app',
+      chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app',
       position: 'bottom-right'
     };
   </script>
-  <script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+  <script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 </body>
 </html>
 ```
@@ -73,7 +73,7 @@ Add this script tag right before the closing `</body>` tag:
 
 ### `chatbotUrl` (Required)
 - **Type:** String
-- **Default:** `https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app`
+- **Default:** `https://real-estate-chatbot-tau.vercel.app`
 - **Description:** The URL of your deployed chatbot
 
 ### `position` (Optional)
@@ -96,22 +96,22 @@ Add this script tag right before the closing `</body>` tag:
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app',
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app',
     position: 'bottom-left'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ### Example 2: Top-Right Position
 ```html
 <script>
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app',
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app',
     position: 'top-right'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ---
@@ -137,11 +137,11 @@ const container = document.getElementById('real-estate-chatbot-widget');
 <script>
   // Set configuration before loading the script
   window.RealEstateChatbotConfig = {
-    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app',
+    chatbotUrl: 'https://real-estate-chatbot-tau.vercel.app',
     position: 'bottom-right'
   };
 </script>
-<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+<script src="https://real-estate-chatbot-tau.vercel.app/embed.js"></script>
 ```
 
 ---
