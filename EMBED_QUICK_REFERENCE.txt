@@ -1,0 +1,182 @@
+================================================================================
+  REAL ESTATE CHATBOT - QUICK REFERENCE GUIDE
+================================================================================
+
+🚀 QUICK START (Copy & Paste)
+================================================================================
+
+<script>
+  window.RealEstateChatbotConfig = {
+    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app'
+  };
+</script>
+<script src="https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app/embed.js"></script>
+
+📍 WHERE TO PLACE IT
+================================================================================
+
+Add the code RIGHT BEFORE the closing </body> tag in your HTML:
+
+    </main>
+    
+    <!-- ADD CHATBOT CODE HERE -->
+    <script>
+      window.RealEstateChatbotConfig = { ... };
+    </script>
+    <script src="..."></script>
+    
+    </body>  ← Closing body tag
+
+⚙️ CONFIGURATION OPTIONS
+================================================================================
+
+Position Options:
+  - 'bottom-right' (default)
+  - 'bottom-left'
+  - 'top-right'
+  - 'top-left'
+
+Example with position:
+  window.RealEstateChatbotConfig = {
+    chatbotUrl: 'https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app',
+    position: 'bottom-left'
+  };
+
+🌐 PLATFORM INSTRUCTIONS
+================================================================================
+
+WordPress:
+  1. Appearance → Theme File Editor
+  2. Find footer.php
+  3. Add code before </body>
+  4. Click Update File
+
+Wix:
+  1. Settings → Custom Code
+  2. Add Custom Code
+  3. Paste code
+  4. Set placement to Footer
+
+Squarespace:
+  1. Settings → Advanced → Code Injection
+  2. Paste in Footer section
+  3. Click Save
+
+Shopify:
+  1. Online Store → Themes
+  2. Edit code
+  3. Find theme.liquid
+  4. Add before </body>
+  5. Click Save
+
+Webflow:
+  1. Project Settings → Custom Code
+  2. Paste in Footer Code
+  3. Click Save
+
+HTML/Static:
+  Add before </body> tag in your HTML file
+
+✅ VERIFICATION CHECKLIST
+================================================================================
+
+After adding the code:
+
+  [ ] Code is placed before </body> tag
+  [ ] No errors in browser console (F12)
+  [ ] 💬 button appears in corner
+  [ ] Button is clickable
+  [ ] Chat opens and shows welcome message
+  [ ] Can type and send messages
+  [ ] AI responds with real estate info
+  [ ] Widget works on mobile
+
+🐛 TROUBLESHOOTING
+================================================================================
+
+Widget not showing?
+  → Check code is before </body>
+  → Clear browser cache (Ctrl+Shift+R)
+  → Check browser console for errors
+
+Widget shows but doesn't work?
+  → Verify chatbot URL is accessible
+  → Check for CORS errors in console
+  → Try different browser
+
+Styling looks broken?
+  → Check for CSS conflicts
+  → Clear cache and refresh
+  → Use browser DevTools to inspect
+
+📞 RESOURCES
+================================================================================
+
+Live Chatbot:
+  https://real-estate-chatbot-jrzolnpil-grego118s-projects.vercel.app
+
+GitHub Repository:
+  https://github.com/grego118118/rechatbot
+
+Vercel Dashboard:
+  https://vercel.com/grego118s-projects/real-estate-chatbot
+
+Documentation Files:
+  - CHATBOT_EMBED_GUIDE.md (Complete guide)
+  - EMBED_INSTRUCTIONS.md (Detailed setup)
+  - EMBED_SNIPPETS.md (Platform-specific code)
+  - embed-example.html (Working example)
+
+🎯 WHAT THE CHATBOT DOES
+================================================================================
+
+✅ Answers real estate questions
+✅ Provides market statistics
+✅ Shares town-specific info
+✅ Guides buyers and sellers
+✅ Recommends Stephanie Lepsch
+✅ Directs to property listings
+
+❌ Cannot display listings directly
+❌ Cannot process transactions
+❌ Cannot access personal data
+
+🎨 FEATURES
+================================================================================
+
+✅ BHHS Milano Red branding (#AF0C0D)
+✅ Floating 💬 button widget
+✅ Responsive design (mobile/tablet/desktop)
+✅ Isolated iframe (no conflicts)
+✅ Customizable position
+✅ Professional appearance
+✅ AI-powered responses
+✅ Stephanie Lepsch branding
+
+📊 WIDGET SPECIFICATIONS
+================================================================================
+
+Default Size:
+  - Width: min(90vw, 450px)
+  - Height: min(90vh, 800px)
+  - Responsive on all devices
+
+Position: Fixed (bottom-right by default)
+Z-Index: 999999 (appears above other elements)
+Border Radius: 12px
+Shadow: 0 5px 40px rgba(0, 0, 0, 0.16)
+
+🔒 SECURITY
+================================================================================
+
+✅ Runs in isolated iframe
+✅ No access to parent page
+✅ HTTPS only
+✅ No cookies or tracking
+✅ CSP compatible
+✅ Safe for production
+
+================================================================================
+  For more information, see the documentation files in the repository
+================================================================================
+
