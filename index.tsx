@@ -40,6 +40,7 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
   const [loading, setLoading] = useState(false);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showInitialQuestions, setShowInitialQuestions] = useState(true); // New state to control initial questions visibility
+  const [isQuestionsCollapsed, setIsQuestionsCollapsed] = useState(false); // New state to track if questions section is collapsed
   const chat = useRef<Chat | null>(null);
   const chatHistoryRef = useRef<HTMLDivElement>(null);
 
@@ -86,7 +87,7 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
       cancelAnimationFrame(animationFrameId);
       clearTimeout(timeoutId);
     };
-  }, [messages, suggestions, showInitialQuestions]);
+  }, [messages, suggestions, showInitialQuestions, isQuestionsCollapsed]);
 
   const fetchSuggestions = async (lastUserQuery: string, lastModelResponse: string) => {
     if (!lastUserQuery || !lastModelResponse) {
@@ -244,31 +245,79 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
         <div className="max-w-4xl mx-auto">
           {/* Display initial questions if applicable */}
           {showInitialQuestions && !loading && messages.length === 1 && ( // Only show if it's just the welcome message
-            <div className="flex flex-wrap justify-center gap-2 mb-3">
-              {initialQuestionsList.map((question, i) => (
+            <div className="mb-3">
+              {/* Header with minimize button */}
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-semibold text-gray-600">Choose a question to get started:</span>
                 <button
-                  key={`initial-${i}`}
-                  onClick={() => handleSuggestionClick(question)}
-                  className="px-4 py-2 text-sm font-medium text-white bg-[#AF0C0D] rounded-full hover:bg-[#8B0A0A] transition-colors text-left"
+                  onClick={() => setIsQuestionsCollapsed(!isQuestionsCollapsed)}
+                  className="text-gray-500 hover:text-gray-700 p-1 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-[#AF0C0D]"
+                  aria-label={isQuestionsCollapsed ? "Expand questions" : "Collapse questions"}
+                  title={isQuestionsCollapsed ? "Expand" : "Collapse"}
                 >
-                  {question}
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    {isQuestionsCollapsed ? (
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14m7-7H5" />
+                    ) : (
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+                    )}
+                  </svg>
                 </button>
-              ))}
+              </div>
+
+              {/* Questions section with smooth collapse animation */}
+              {!isQuestionsCollapsed && (
+                <div className="flex flex-wrap justify-center gap-2 transition-all duration-300 ease-in-out">
+                  {initialQuestionsList.map((question, i) => (
+                    <button
+                      key={`initial-${i}`}
+                      onClick={() => handleSuggestionClick(question)}
+                      className="px-4 py-2 text-sm font-medium text-white bg-[#AF0C0D] rounded-full hover:bg-[#8B0A0A] transition-colors text-left"
+                    >
+                      {question}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           )}
 
           {/* Display model-generated suggestions */}
           {!loading && suggestions.length > 0 && (
-            <div className="flex flex-wrap justify-center gap-2 mb-3">
-              {suggestions.map((suggestion, i) => (
+            <div className="mb-3">
+              {/* Header with minimize button for suggestions */}
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-semibold text-gray-600">Suggested questions:</span>
                 <button
-                  key={`suggestion-${i}`}
-                  onClick={() => handleSuggestionClick(suggestion)}
-                  className="px-4 py-2 text-sm font-medium text-white bg-[#AF0C0D] rounded-full hover:bg-[#8B0A0A] transition-colors"
+                  onClick={() => setIsQuestionsCollapsed(!isQuestionsCollapsed)}
+                  className="text-gray-500 hover:text-gray-700 p-1 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-[#AF0C0D]"
+                  aria-label={isQuestionsCollapsed ? "Expand suggestions" : "Collapse suggestions"}
+                  title={isQuestionsCollapsed ? "Expand" : "Collapse"}
                 >
-                  {suggestion}
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    {isQuestionsCollapsed ? (
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14m7-7H5" />
+                    ) : (
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+                    )}
+                  </svg>
                 </button>
-              ))}
+              </div>
+
+              {/* Suggestions section with smooth collapse animation */}
+              {!isQuestionsCollapsed && (
+                <div className="flex flex-wrap justify-center gap-2 transition-all duration-300 ease-in-out">
+                  {suggestions.map((suggestion, i) => (
+                    <button
+                      key={`suggestion-${i}`}
+                      onClick={() => handleSuggestionClick(suggestion)}
+                      className="px-4 py-2 text-sm font-medium text-white bg-[#AF0C0D] rounded-full hover:bg-[#8B0A0A] transition-colors"
+                    >
+                      {suggestion}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           )}
           <form onSubmit={handleSubmit} className="flex items-center space-x-2">
