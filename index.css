@@ -100,3 +100,18 @@ main {
     opacity: 1;
   }
 }
+
+/* Chat widget container - prevent blocking clicks when closed */
+.chat-widget-container {
+  pointer-events: none;
+}
+
+/* Allow pointer events on the toggle button when closed */
+.chat-toggle-button {
+  pointer-events: auto;
+}
+
+/* Allow pointer events on expanded content */
+.chat-expanded-content {
+  pointer-events: auto;
+}
