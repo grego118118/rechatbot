@@ -494,7 +494,7 @@ const App = () => {
     >
       {!isOpen && (
         <button
-          className="chat-toggle-button w-[min(80vw,240px)] h-16 bg-[#AF0C0D] text-white rounded-full flex items-center justify-center gap-2 text-sm font-semibold shadow-lg hover:bg-[#8B0A0A] transition-colors focus:outline-none focus:ring-2 focus:ring-[#AF0C0D] focus:ring-offset-2"
+          className="chat-toggle-button w-[min(80vw,240px)] h-16 bg-[#AF0C0D] text-white rounded-full flex items-center justify-center gap-2 text-sm font-semibold shadow-2xl hover:bg-[#8B0A0A] transition-colors focus:outline-none focus:ring-2 focus:ring-[#AF0C0D] focus:ring-offset-2"
           onClick={() => setIsOpen(true)}
           aria-label="Open chat assistant"
         >
