@@ -356,7 +356,7 @@ const App = () => {
 
   return (
     <div className={`chat-widget-container fixed bottom-4 right-4 z-[1000] transition-all duration-300 ease-in-out
-      ${isOpen ? 'w-[min(90vw,450px)] h-[min(90vh,800px)] rounded-lg shadow-2xl flex flex-col' : 'w-[min(80vw,240px)] h-16 rounded-full'}`}
+      ${isOpen ? 'w-[min(95vw,550px)] h-[min(80vh,750px)] rounded-lg shadow-2xl flex flex-col' : 'w-[min(80vw,240px)] h-16 rounded-full'}`}
     >
       {!isOpen && (
         <button

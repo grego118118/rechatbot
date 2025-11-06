@@ -62,8 +62,8 @@
         ${positionStyles}
         width: 240px;
         height: 64px;
-        max-width: 90vw;
-        max-height: 70vh;
+        max-width: 95vw;
+        max-height: 80vh;
         border: none;
         border-radius: 12px;
         box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
@@ -81,8 +81,8 @@
       // Handle responsive sizing for iframe
       let isOpen = false;
       function updateIframeSize() {
-        const widthOpen = Math.min(window.innerWidth * 0.9, 450);
-        const heightOpen = Math.min(window.innerHeight * 0.7, 600);
+        const widthOpen = Math.min(window.innerWidth * 0.95, 550);
+        const heightOpen = Math.min(window.innerHeight * 0.8, 750);
         const widthClosed = Math.min(window.innerWidth * 0.8, 240);
         const w = isOpen ? widthOpen : widthClosed;
         const h = isOpen ? heightOpen : 64;
