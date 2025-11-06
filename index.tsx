@@ -356,15 +356,15 @@ const App = () => {
 
   return (
     <div className={`chat-widget-container fixed bottom-4 right-4 z-[1000] transition-all duration-300 ease-in-out
-      ${isOpen ? 'w-[min(90vw,450px)] h-[min(90vh,800px)] rounded-lg shadow-2xl flex flex-col' : 'w-16 h-16 rounded-full'}`}
+      ${isOpen ? 'w-[min(90vw,450px)] h-[min(90vh,800px)] rounded-lg shadow-2xl flex flex-col' : 'w-[min(80vw,240px)] h-16 rounded-full'}`}
     >
       {!isOpen && (
         <button
-          className="chat-toggle-button w-16 h-16 bg-[#AF0C0D] text-white rounded-full flex items-center justify-center text-3xl shadow-lg hover:bg-[#8B0A0A] transition-colors focus:outline-none focus:ring-2 focus:ring-[#AF0C0D] focus:ring-offset-2"
+          className="chat-toggle-button w-full h-16 bg-[#AF0C0D] text-white rounded-full flex items-center justify-center gap-2 text-sm font-semibold shadow-lg hover:bg-[#8B0A0A] transition-colors focus:outline-none focus:ring-2 focus:ring-[#AF0C0D] focus:ring-offset-2"
           onClick={() => setIsOpen(true)}
           aria-label="Open chat assistant"
         >
-          💬
+          💬 Real Estate Help
         </button>
       )}
       {isOpen && (
