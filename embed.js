@@ -60,8 +60,8 @@
       iframe.style.cssText = `
         position: fixed;
         ${positionStyles}
-        width: 240px;
-        height: 64px;
+        width: 260px;
+        height: 80px;
         max-width: 95vw;
         max-height: 80vh;
         border: none;
@@ -83,9 +83,9 @@
       function updateIframeSize() {
         const widthOpen = Math.min(window.innerWidth * 0.95, 550);
         const heightOpen = Math.min(window.innerHeight * 0.8, 750);
-        const widthClosed = Math.min(window.innerWidth * 0.8, 240);
+        const widthClosed = Math.min(window.innerWidth * 0.8, 260);
         const w = isOpen ? widthOpen : widthClosed;
-        const h = isOpen ? heightOpen : 64;
+        const h = isOpen ? heightOpen : 80;
 
         iframe.style.width = w + 'px';
         iframe.style.height = h + 'px';

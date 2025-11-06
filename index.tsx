@@ -44,6 +44,15 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
   const chat = useRef<Chat | null>(null);
   const chatHistoryRef = useRef<HTMLDivElement>(null);
 
+  const [leadOpen, setLeadOpen] = useState(false);
+  const [leadName, setLeadName] = useState('');
+  const [leadEmail, setLeadEmail] = useState('');
+  const [leadPhone, setLeadPhone] = useState('');
+  const [leadNotes, setLeadNotes] = useState('');
+  const [leadConsent, setLeadConsent] = useState(false);
+  const [leadSubmitting, setLeadSubmitting] = useState(false);
+  const [leadResult, setLeadResult] = useState<{ ok: boolean; msg: string } | null>(null);
+
   useEffect(() => {
     const initChat = async () => {
       try {
@@ -194,8 +203,51 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
     await sendMessage(suggestion);
   };
 
+  const submitLead = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLeadResult(null);
+    if (!leadName.trim()) { setLeadResult({ ok: false, msg: 'Please enter your name.' }); return; }
+    if (!leadEmail.trim() && !leadPhone.trim()) { setLeadResult({ ok: false, msg: 'Provide at least email or phone.' }); return; }
+    if (!leadConsent) { setLeadResult({ ok: false, msg: 'Please provide consent to be contacted.' }); return; }
+    setLeadSubmitting(true);
+    const [first, ...rest] = leadName.trim().split(/\s+/);
+    const last = rest.join(' ') || '';
+    const conversationSnippet = messages.slice(-8)
+      .map(m => `${m.role === 'user' ? 'User' : 'Assistant'}: ${m.text}`)
+      .join('\n')
+      .slice(0, 1500);
+    try {
+      const resp = await fetch('/api/boldtrail-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: leadName.trim(),
+          firstName: first,
+          lastName: last,
+          email: leadEmail.trim(),
+          phone: leadPhone.trim(),
+          notes: leadNotes.trim(),
+          source: 'Website Chatbot',
+          conversation: conversationSnippet,
+          consent: true,
+        }),
+      });
+      const data = await resp.json().catch(() => ({}));
+      if (!resp.ok || data?.ok === false) {
+        setLeadResult({ ok: false, msg: data?.error || 'Submission failed. Please try again.' });
+      } else {
+        setLeadResult({ ok: true, msg: 'Thanks! Stephanie will reach out shortly.' });
+        setLeadName(''); setLeadEmail(''); setLeadPhone(''); setLeadNotes(''); setLeadConsent(false);
+      }
+    } catch {
+      setLeadResult({ ok: false, msg: 'Network error. Please try again.' });
+    } finally {
+      setLeadSubmitting(false);
+    }
+  };
+
   return (
-    <div className="flex flex-col flex-1 bg-gray-50 h-full">
+    <div className="relative flex flex-col flex-1 bg-gray-50 h-full">
       <header className="flex items-center justify-between p-4 bg-white border-b border-gray-200 shadow-sm shrink-0">
         <div className="flex items-center">
           <img src={stephanieImage} alt="Stephanie Lepsch" className="w-12 h-12 rounded-full object-cover mr-3" />
@@ -209,15 +261,24 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
             </div>
           </div>
         </div>
-        <button
-          onClick={onClose}
-          className="text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-300 ml-auto"
-          aria-label="Close chat assistant"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+        <div className="flex items-center gap-2 ml-auto">
+          <button
+            onClick={() => setLeadOpen(true)}
+            className="px-3 py-1.5 text-sm font-semibold text-white bg-[#AF0C0D] rounded-full hover:bg-[#8B0A0A] focus:outline-none focus:ring-2 focus:ring-[#AF0C0D]"
+            aria-label="Open contact form"
+          >
+            Contact Stephanie
+          </button>
+          <button
+            onClick={onClose}
+            className="text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-300"
+            aria-label="Close chat assistant"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
       </header>
 
       <main ref={chatHistoryRef} className="flex-1 overflow-y-auto p-6 space-y-6 min-h-0 w-full">
@@ -341,6 +402,77 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
           </form>
         </div>
       </footer>
+      {leadOpen && (
+        <div className="absolute inset-0 bg-black/30 flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-md rounded-lg shadow-xl p-4">
+            <h2 className="text-base font-semibold mb-2">Contact Stephanie</h2>
+            {leadResult && (
+              <div className={`${leadResult.ok ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'} text-sm rounded p-2 mb-2`}>
+                {leadResult.msg}
+              </div>
+            )}
+            <form onSubmit={submitLead} className="space-y-2">
+              <input
+                type="text"
+                value={leadName}
+                onChange={(e) => setLeadName(e.target.value)}
+                placeholder="Full name"
+                className="w-full px-3 py-2 border border-gray-300 rounded"
+                required
+              />
+              <input
+                type="email"
+                value={leadEmail}
+                onChange={(e) => setLeadEmail(e.target.value)}
+                placeholder="Email (optional)"
+                className="w-full px-3 py-2 border border-gray-300 rounded"
+              />
+              <input
+                type="tel"
+                value={leadPhone}
+                onChange={(e) => setLeadPhone(e.target.value)}
+                placeholder="Phone (optional)"
+                className="w-full px-3 py-2 border border-gray-300 rounded"
+              />
+              <textarea
+                value={leadNotes}
+                onChange={(e) => setLeadNotes(e.target.value)}
+                placeholder="Notes (optional)"
+                className="w-full px-3 py-2 border border-gray-300 rounded"
+                rows={3}
+              />
+              <label className="flex items-start gap-2 text-sm">
+                <input
+                  type="checkbox"
+                  checked={leadConsent}
+                  onChange={(e) => setLeadConsent(e.target.checked)}
+                  required
+                />
+                <span>
+                  I agree to be contacted by Stephanie via email, phone, or SMS. Message/data rates may apply. Consent is not a condition of purchase.
+                </span>
+              </label>
+              <div className="flex justify-end gap-2 pt-1">
+                <button
+                  type="button"
+                  onClick={() => { setLeadOpen(false); setLeadResult(null); }}
+                  className="px-3 py-1.5 rounded border border-gray-300 text-gray-700 hover:bg-gray-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={leadSubmitting}
+                  className="px-3 py-1.5 rounded bg-[#AF0C0D] text-white hover:bg-[#8B0A0A] disabled:opacity-60"
+                >
+                  {leadSubmitting ? 'Sending…' : 'Send'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
@@ -355,12 +487,14 @@ const App = () => {
   }, [isOpen]);
 
   return (
-    <div className={`chat-widget-container fixed bottom-4 right-4 z-[1000] transition-all duration-300 ease-in-out
-      ${isOpen ? 'w-[min(95vw,550px)] h-[min(80vh,750px)] rounded-lg shadow-2xl flex flex-col' : 'w-[min(80vw,240px)] h-16 rounded-full'}`}
+    <div className={`chat-widget-container z-[1000] transition-all duration-300 ease-in-out
+      ${isOpen
+        ? 'fixed bottom-4 right-4 w-[min(95vw,550px)] h-[min(80vh,750px)] rounded-lg shadow-2xl flex flex-col'
+        : 'fixed inset-0 flex items-center justify-center'}`}
     >
       {!isOpen && (
         <button
-          className="chat-toggle-button w-full h-16 bg-[#AF0C0D] text-white rounded-full flex items-center justify-center gap-2 text-sm font-semibold shadow-lg hover:bg-[#8B0A0A] transition-colors focus:outline-none focus:ring-2 focus:ring-[#AF0C0D] focus:ring-offset-2"
+          className="chat-toggle-button w-[min(80vw,240px)] h-16 bg-[#AF0C0D] text-white rounded-full flex items-center justify-center gap-2 text-sm font-semibold shadow-lg hover:bg-[#8B0A0A] transition-colors focus:outline-none focus:ring-2 focus:ring-[#AF0C0D] focus:ring-offset-2"
           onClick={() => setIsOpen(true)}
           aria-label="Open chat assistant"
         >
