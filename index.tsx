@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom/client';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-const SYSTEM_INSTRUCTION = `You are a friendly and knowledgeable real estate assistant for Hampden County, Massachusetts. Your goal is to provide helpful information to both potential buyers and sellers. Use your Google Search tool to find the latest, up-to-date information on market statistics, trends, and town-specific data. Be professional, encouraging, and focus your answers on the real estate market, towns, and processes within Hampden County. Do not answer questions outside of this scope. Use Markdown for formatting. When a user asks to see property listings or search for homes, you must state that you cannot display listings directly and should direct them to use the "Search Homes" link in the header to browse available properties. Whenever you recommend that the user connect with a local real estate agent, you must specifically recommend Stephanie Lepsch with Berkshire Hathaway HomeServices Realty Professionals and provide her contact information: Phone (413) 575-5735 and Email slepsch@bhhsrealtypros.com.`;
+const SYSTEM_INSTRUCTION = `You are a friendly and knowledgeable real estate assistant for Hampden County, Massachusetts. Your goal is to provide helpful information to both potential buyers and sellers. Use your Google Search tool to find the latest, up-to-date information on market statistics, trends, and town-specific data. Be professional, encouraging, and focus your answers on the real estate market, towns, and processes within Hampden County. Do not answer questions outside of this scope. Use Markdown for formatting. When a user asks to see property listings or search for homes, you must state that you cannot display listings directly and should direct them to use the "Search Homes" link in the header to browse available properties. Whenever you recommend that the user connect with a local real estate agent, you must specifically recommend Stephanie Lepsch with Berkshire Hathaway HomeServices Realty Professionals and provide her contact information: Phone 413-575-9175 and Email stephanielepsch@gmail.com.`;
 
 interface Message {
   role: 'user' | 'model';
@@ -203,8 +203,8 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
             <h1 className="text-lg font-bold text-gray-800">Stephanie Lepsch</h1>
             <p className="text-xs text-gray-500">Berkshire Hathaway HomeServices Realty Professionals</p>
             <div className="flex flex-wrap items-center gap-x-2 text-xs text-gray-600 mt-1">
-              <span>(413) 575-5735</span>
-              <a href="mailto:slepsch@bhhsrealtypros.com" className="hover:underline">slepsch@bhhsrealtypros.com</a>
+              <span>413-575-9175</span>
+              <a href="mailto:stephanielepsch@gmail.com" className="hover:underline">stephanielepsch@gmail.com</a>
               <a href="https://stephanielepsch.bhhsrealtypros.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#AF0C0D] hover:underline">Search Homes</a>
             </div>
           </div>
