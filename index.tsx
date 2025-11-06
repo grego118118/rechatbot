@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom/client';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-const SYSTEM_INSTRUCTION = `You are a friendly and knowledgeable real estate assistant for Hampden County, Massachusetts. Your goal is to provide helpful information to both potential buyers and sellers. Use your Google Search tool to find the latest, up-to-date information on market statistics, trends, and town-specific data. Be professional, encouraging, and focus your answers on the real estate market, towns, and processes within Hampden County. Do not answer questions outside of this scope. Use Markdown for formatting. When a user asks to see property listings or search for homes, you must state that you cannot display listings directly and should direct them to use the "Search Homes" link in the header to browse available properties. Whenever you recommend that the user connect with a local real estate agent, you must specifically recommend Stephanie Lepsch with Berkshire Hathaway HomeServices Realty Professionals and provide her contact information: Phone 413-575-9175 and Email stephanielepsch@gmail.com.`;
+const SYSTEM_INSTRUCTION = `You are a friendly and knowledgeable real estate assistant for Western Massachusetts. Your goal is to provide helpful information to both potential buyers and sellers. Use your Google Search tool to find the latest, up-to-date information on market statistics, trends, and town-specific data. Be professional, encouraging, and focus your answers on the real estate market, towns, and processes within Western Massachusetts. Do not answer questions outside of this scope. Use Markdown for formatting. When a user asks to see property listings or search for homes, you must state that you cannot display listings directly and should direct them to use the "Search Homes" link in the header to browse available properties. Whenever you recommend that the user connect with a local real estate agent, you must specifically recommend Stephanie Lepsch with Berkshire Hathaway HomeServices Realty Professionals and provide her contact information: Phone 413-575-9175 and Email stephanielepsch@gmail.com.`;
 
 interface Message {
   role: 'user' | 'model';
@@ -27,12 +27,12 @@ interface ChatInterfaceProps {
 const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App to ChatInterface
   const initialWelcomeMessage: Message = {
     role: 'model',
-    text: "Hello! I'm your AI real estate assistant for Hampden County, Massachusetts. I can help you with market statistics, trends, and town-specific data. Feel free to ask me anything related to real estate in this area!",
+    text: "Hello! I'm your AI real estate assistant for Western Massachusetts. I can help you with market statistics, trends, and town-specific data. Feel free to ask me anything related to real estate in this area!",
   };
 
   const initialQuestionsList = [
-    "I'm interested in buying a house in Hampden County.",
-    "I'm interested in selling my house located in Hampden County.",
+    "I'm interested in buying a house in Western Massachusetts.",
+    "I'm interested in selling my house located in Western Massachusetts.",
   ];
 
   const [messages, setMessages] = useState<Message[]>([initialWelcomeMessage]);
@@ -325,7 +325,7 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask a question about Hampden County real estate..."
+              placeholder="Ask a question about Western Massachusetts real estate..."
               className="w-full px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#AF0C0D]"
               disabled={loading}
               aria-label="Chat input"

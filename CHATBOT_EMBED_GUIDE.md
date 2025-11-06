@@ -47,7 +47,7 @@ Your BHHS-branded real estate chatbot is now ready to be embedded into any websi
 
 ### What the Chatbot Can Do:
 
-- 🔍 Answer questions about Hampden County real estate market
+- 🔍 Answer questions about Western Massachusetts real estate market
 - 📊 Provide market statistics and trends
 - 🏘️ Share town-specific information
 - 💡 Guide buyers and sellers through the process
@@ -274,7 +274,7 @@ After adding the embed code:
 Your BHHS-branded real estate chatbot is now embedded and ready to help your website visitors. The chatbot will:
 
 1. Greet visitors with a friendly welcome message
-2. Answer questions about Hampden County real estate
+2. Answer questions about Western Massachusetts real estate
 3. Provide market insights and trends
 4. Guide buyers and sellers
 5. Recommend connecting with Stephanie Lepsch
