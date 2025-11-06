@@ -80,7 +80,7 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
 
     animationFrameId = requestAnimationFrame(() => {
       // A small delay (e.g., 50ms) to ensure DOM layout is fully settled after updates
-      timeoutId = setTimeout(scrollToBottom, 50); 
+      timeoutId = setTimeout(scrollToBottom, 50);
     });
 
     return () => {
@@ -100,7 +100,7 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
 
       User question: "${lastUserQuery}"
       My answer: "${lastModelResponse}"`;
-      
+
       const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
         contents: prompt,
@@ -164,7 +164,7 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
           )
         );
       }
-      
+
       // Fetch new suggestions based on the latest interaction
       await fetchSuggestions(userInput, modelResponseText);
 
@@ -181,7 +181,7 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
     e?.preventDefault();
     const currentInput = input.trim();
     if (!currentInput) return;
-    
+
     setInput('');
     await sendMessage(currentInput);
   };
@@ -348,6 +348,11 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
 // New App component as the widget wrapper
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+
+  useEffect(() => {
+    try { window.parent?.postMessage({ type: 'RECHATBOT:TOGGLE', isOpen }, '*'); } catch (e) {}
+  }, [isOpen]);
 
   return (
     <div className={`chat-widget-container fixed bottom-4 right-4 z-[1000] transition-all duration-300 ease-in-out

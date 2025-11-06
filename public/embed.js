@@ -60,8 +60,8 @@
       iframe.style.cssText = `
         position: fixed;
         ${positionStyles}
-        width: 450px;
-        height: 600px;
+        width: 64px;
+        height: 64px;
         max-width: 90vw;
         max-height: 70vh;
         border: none;
@@ -79,19 +79,30 @@
       document.body.appendChild(container);
 
       // Handle responsive sizing for iframe
+      let isOpen = false;
       function updateIframeSize() {
-        const width = Math.min(window.innerWidth * 0.9, 450);
-        const height = Math.min(window.innerHeight * 0.7, 600);
+        const widthOpen = Math.min(window.innerWidth * 0.9, 450);
+        const heightOpen = Math.min(window.innerHeight * 0.7, 600);
+        const w = isOpen ? widthOpen : 64;
+        const h = isOpen ? heightOpen : 64;
 
-        iframe.style.width = width + 'px';
-        iframe.style.height = height + 'px';
+        iframe.style.width = w + 'px';
+        iframe.style.height = h + 'px';
       }
 
       // Initial size
       updateIframeSize();
 
-      // Update on resize
+      // Update on resize and listen for open/close messages from iframe
       window.addEventListener('resize', updateIframeSize);
+      window.addEventListener('message', (e) => {
+        if (e.source !== iframe.contentWindow) return;
+        const d = e.data || {};
+        if (d.type === 'RECHATBOT:TOGGLE') {
+          isOpen = !!d.isOpen;
+          updateIframeSize();
+        }
+      });
 
       // Log successful load
       console.log('✅ Real Estate Chatbot widget loaded successfully');
