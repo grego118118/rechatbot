@@ -22,9 +22,11 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY! });
 
 interface ChatInterfaceProps {
   onClose: () => void;
+  sessionId: string;
+  track: (type: string, payload?: any) => Promise<void>;
 }
 
-const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App to ChatInterface
+const ChatInterface = ({ onClose, sessionId, track }: ChatInterfaceProps) => { // Renamed from App to ChatInterface
   const initialWelcomeMessage: Message = {
     role: 'model',
     text: "Hello! I'm your AI real estate assistant for Western Massachusetts. I can help you with market statistics, trends, and town-specific data. Feel free to ask me anything related to real estate in this area!",
@@ -156,6 +158,9 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
     setLoading(true);
     setSuggestions([]); // Clear any existing suggestions
     const userMessage: Message = { role: 'user', text: userInput };
+    const startTs = (typeof performance !== 'undefined' ? performance.now() : Date.now());
+    try { await track('message', { role: 'user', text: userInput }); } catch {}
+
     const modelMessage: Message = { role: 'model', text: '' }; // Placeholder for streaming response
     setMessages(prev => [...prev, userMessage, modelMessage]);
 
@@ -171,14 +176,23 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
               ? { ...msg, text: modelResponseText }
               : msg
           )
+
+
         );
       }
+
+      const latencyMs = (typeof performance !== 'undefined' ? performance.now() : Date.now()) - startTs;
+      try { await track('message', { role: 'assistant', text: modelResponseText, latency_ms: Math.round(latencyMs) }); } catch {}
+
 
       // Fetch new suggestions based on the latest interaction
       await fetchSuggestions(userInput, modelResponseText);
 
+
     } catch (error) {
       console.error("Error sending message:", error);
+      try { await track('error', { stage: 'sendMessage', message: String(error) }); } catch {}
+
       const errorMessage: Message = { role: 'model', text: 'Sorry, I encountered an error. Please try again.' };
       setMessages(prev => [...prev.slice(0, -1), errorMessage]); // Replace typing indicator with error
     } finally {
@@ -223,11 +237,13 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
         body: JSON.stringify({
           fullName: leadName.trim(),
           firstName: first,
+
           lastName: last,
           email: leadEmail.trim(),
           phone: leadPhone.trim(),
           notes: leadNotes.trim(),
           source: 'Website Chatbot',
+          sessionId,
           conversation: conversationSnippet,
           consent: true,
         }),
@@ -237,6 +253,7 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
         setLeadResult({ ok: false, msg: data?.error || 'Submission failed. Please try again.' });
       } else {
         setLeadResult({ ok: true, msg: 'Thanks! Stephanie will reach out shortly.' });
+        try { await track('lead_submitted', { email: leadEmail.trim(), phone: leadPhone.trim() }); } catch {}
         setLeadName(''); setLeadEmail(''); setLeadPhone(''); setLeadNotes(''); setLeadConsent(false);
       }
     } catch {
@@ -464,6 +481,7 @@ const ChatInterface = ({ onClose }: ChatInterfaceProps) => { // Renamed from App
                   type="submit"
                   disabled={leadSubmitting}
                   className="px-3 py-1.5 rounded bg-[#AF0C0D] text-white hover:bg-[#8B0A0A] disabled:opacity-60"
+
                 >
                   {leadSubmitting ? 'Sending…' : 'Send'}
                 </button>
@@ -482,9 +500,41 @@ const App = () => {
   const [isOpen, setIsOpen] = useState(false);
 
 
+  const [sessionId, setSessionId] = useState<string>('');
+
+  useEffect(() => {
+    try {
+      let id = localStorage.getItem('rechatbot_session_id');
+      if (!id) {
+        const rand = (typeof crypto !== 'undefined' && (crypto as any).randomUUID)
+          ? (crypto as any).randomUUID()
+          : Math.random().toString(36).slice(2);
+        id = `${rand}-${Date.now()}`;
+        localStorage.setItem('rechatbot_session_id', id);
+      }
+      setSessionId(id);
+    } catch {}
+  }, []);
+
+  const track = async (type: string, payload?: any) => {
+    if (!sessionId) return;
+    try {
+      await fetch('/api/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type, sessionId, payload })
+      });
+    } catch {}
+  };
+
   useEffect(() => {
     try { window.parent?.postMessage({ type: 'RECHATBOT:TOGGLE', isOpen }, '*'); } catch (e) {}
-  }, [isOpen]);
+    if (isOpen) {
+      try { track('open', { userAgent: navigator.userAgent, referrer: document.referrer }); } catch {}
+    } else {
+      try { track('close'); } catch {}
+    }
+  }, [isOpen, sessionId]);
 
   return (
     <div className={`chat-widget-container z-[1000] transition-all duration-300 ease-in-out
@@ -503,7 +553,7 @@ const App = () => {
       )}
       {isOpen && (
         <div className="chat-expanded-content flex flex-col h-full bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
-          <ChatInterface onClose={() => setIsOpen(false)} /> {/* Render the actual chat UI here */}
+          <ChatInterface onClose={() => setIsOpen(false)} sessionId={sessionId} track={track} /> {/* Render the actual chat UI here */}
         </div>
       )}
     </div>
